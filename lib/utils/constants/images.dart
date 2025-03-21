@@ -202,18 +202,29 @@ class UImages{
   static const String productImage68 = 'assets/products/product 68.png';
 
   // Brands
-  static const String adidasLogo = 'assets/brands/bata.png';
-  static const String appleLogo = 'assets/brands/bata.png';
+  static const String adidasLogo = 'assets/brands/adidas.png';
+  static const String appleLogo = 'assets/brands/apple.png';
   static const String bataLogo = 'assets/brands/bata.png';
-  static const String bloodyLogo = 'assets/brands/bata.png';
-  static const String breakoutLogo = 'assets/brands/bata.png';
-  static const String dariMoochLogo = 'assets/brands/bata.png';
-  static const String hpLogo = 'assets/brands/bata.png';
-  static const String interWoodLogo = 'assets/brands/bata.png';
-  static const String jLogo = 'assets/brands/bata.png';
-  static const String nDURELogo = 'assets/brands/bata.png';
-  static const String nikeLogo = 'assets/brands/bata.png';
-  static const String northStarLogo = 'assets/brands/bata.png';
-  static const String poloLogo = 'assets/brands/bata.png';
+  static const String bloodyLogo = 'assets/brands/bloody.png';
+  static const String breakoutLogo = 'assets/brands/breakout.png';
+  static const String dariMoochLogo = 'assets/brands/dari_mooch.png';
+  static const String hpLogo = 'assets/brands/hp.png';
+  static const String interWoodLogo = 'assets/brands/interwood.png';
+  static const String jLogo = 'assets/brands/j..png';
+  static const String nDURELogo = 'assets/brands/ndure.png';
+  static const String nikeLogo = 'assets/brands/nike.png';
+  static const String northStarLogo = 'assets/brands/north_star.png';
+  static const String poloLogo = 'assets/brands/polo.png';
+
+  // Payment Methods
+  static const String applePay = "assets/icons/payment_methods/apple-pay.png";
+  static const String googlePay = "assets/icons/payment_methods/google-pay.png";
+  static const String creditCard = "assets/icons/payment_methods/credit-card.png";
+  static const String masterCard = "assets/icons/payment_methods/master-card.png";
+  static const String paypal = "assets/icons/payment_methods/paypal.png";
+  static const String visa = "assets/icons/payment_methods/visa.png";
+  static const String paystack = "assets/icons/payment_methods/paystack.png";
+  static const String paytm = "assets/icons/payment_methods/paytm.png";
+  static const String successfulPaymentIcon = "assets/icons/payment_methods/successful_payment_icon.png";
 
 }
