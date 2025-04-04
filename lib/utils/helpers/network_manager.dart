@@ -3,7 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 
-import 'helper_functions.dart';
+import '../popups/snackbar_helpers.dart';
 
 
 /// Manages the network connectivity status and provides methods to check and handle connectivity changes.
@@ -25,7 +25,7 @@ class NetworkManager extends GetxController {
   Future<void> _updateConnectionStatus(List<ConnectivityResult> result) async {
     _connectionStatus.value = result[0];
     if (_connectionStatus.value == ConnectivityResult.none) {
-      HkHelperFunctions.warningSnackBar(title: 'No Internet Connection');
+      USnackBarHelpers.warningSnackBar(title: 'No Internet Connection');
     }
   }
 

@@ -12,6 +12,7 @@ import '../../../../common/widgets/products/product_cards/product_card_vertical.
 import '../../../../common/widgets/textfields/search_bar.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../controllers/home/home_controller.dart';
+import '../all_products/all_products.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -63,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: USizes.spaceBtwSections),
 
                   /// Section Heading
-                  USectionHeading(title: 'Popular Products', onPressed: (){}),
+                  USectionHeading(title: 'Popular Products', onPressed: () => Get.to(() => AllProductsScreen())),
                   const SizedBox(height: USizes.spaceBtwItems),
 
                   /// Grid View Of Product Cards

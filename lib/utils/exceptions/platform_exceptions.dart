@@ -1,8 +1,8 @@
 /// Exception class for handling various platform-related errors.
-class HkPlatformException implements Exception {
+class UPlatformException implements Exception {
   final String code;
 
-  HkPlatformException(this.code);
+  UPlatformException(this.code);
 
   String get message {
     switch (code) {
