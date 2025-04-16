@@ -1,19 +1,20 @@
+
+import 'package:e_commerce/routes/routes.dart';
+
+import 'features/shop/models/banners_model.dart';
 import 'features/shop/models/category_model.dart';
 import 'utils/constants/images.dart';
 
 class UDummyData {
   /// List of all Banners
 
-  // static final List<BannerModel> banners = [
-  //   BannerModel(imageUrl: UImages.banner1, targetScreen: URoutes.order, active: true),
-  //   BannerModel(imageUrl: UImages.banner2, targetScreen: URoutes.cart, active: true),
-  //   BannerModel(imageUrl: UImages.banner3, targetScreen: URoutes.favourites, active: true),
-  //   BannerModel(imageUrl: UImages.banner4, targetScreen: URoutes.search, active: true),
-  //   BannerModel(imageUrl: UImages.banner5, targetScreen: URoutes.settings, active: true),
-  //   BannerModel(imageUrl: UImages.banner6, targetScreen: URoutes.userAddress, active: true),
-  //   BannerModel(imageUrl: UImages.banner7, targetScreen: URoutes.userAddress, active: true),
-  //   BannerModel(imageUrl: UImages.banner8, targetScreen: URoutes.checkout, active: true),
-  // ];
+  static final List<BannerModel> banner = [
+    BannerModel(imageUrl: UImages.homeBanner1, targetScreen: URoutes.order, active: true),
+    BannerModel(imageUrl: UImages.homeBanner2, targetScreen: URoutes.cart, active: true),
+    BannerModel(imageUrl: UImages.homeBanner3, targetScreen: URoutes.wishlist, active: true),
+    BannerModel(imageUrl: UImages.homeBanner4, targetScreen: URoutes.productDetail, active: true),
+    BannerModel(imageUrl: UImages.homeBanner5, targetScreen: URoutes.profile, active: true),
+  ];
 
   /// List of all Categories
   static final List<CategoryModel> categories = [
