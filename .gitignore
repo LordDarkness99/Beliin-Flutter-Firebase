@@ -47,7 +47,11 @@ app.*.map.json
 android/app/google-services.json
 lib/firebase_options.dart
 firebase.json
-lib/features
+lib/features/authentication/controllers
+lib/features/authentication/screens
+lib/features/personalization
+lib/features/shop/controllers
+lib/features/shop/screens
 lib/data/repositories/user/user_repository.dart
 lib/data/repositories/authentication_repository.dart
 ios/Runner/GoogleService-Info.plist
