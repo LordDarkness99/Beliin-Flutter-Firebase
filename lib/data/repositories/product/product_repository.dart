@@ -14,46 +14,42 @@ import '../../../utils/exceptions/format_exceptions.dart';
 import '../../../utils/exceptions/platform_exceptions.dart';
 import 'package:dio/dio.dart' as dio;
 
-class ProductRepository extends GetxController{
-  static ProductRepository get to => Get.find();
-
+class ProductRepository extends GetxController {
+  static ProductRepository get instance => Get.find();
 
   final _db = FirebaseFirestore.instance;
   final _cloudinaryServices = Get.put(CloudinaryServices());
 
   /// [Upload] - Function to upload list of products to Firebase
   Future<void> uploadProducts(List<ProductModel> products) async {
-    try{
-
-      for(ProductModel product in products){
-
+    try {
+      for (ProductModel product in products) {
         final Map<String, String> uploadedImageMap = {}; // 'assets/products/productImage4' : 'https:cloudinary'
 
         // upload thumbnail to cloudinary
         File thumbnailFile = await UHelperFunctions.assetToFile(product.thumbnail);
         dio.Response response = await _cloudinaryServices.uploadImage(thumbnailFile, UKeys.productsFolder);
-        if(response.statusCode == 200){
+        if (response.statusCode == 200) {
           String url = response.data['url'];
           uploadedImageMap[product.thumbnail] = url;
           product.thumbnail = url;
         }
 
         // upload product images
-        if(product.images != null && product.images!.isNotEmpty){
+        if (product.images != null && product.images!.isNotEmpty) {
           List<String> imageUrls = [];
 
-          for(String image in product.images!){
+          for (String image in product.images!) {
             // upload image to cloudinary
             File imageFile = await UHelperFunctions.assetToFile(image);
             dio.Response response = await _cloudinaryServices.uploadImage(imageFile, UKeys.productsFolder);
-            if(response.statusCode == 200){
+            if (response.statusCode == 200) {
               imageUrls.add(response.data['url']);
             }
           }
 
           // upload product variation images
-          if(product.productVariations != null && product.productVariations!.isNotEmpty){
-
+          if (product.productVariations != null && product.productVariations!.isNotEmpty) {
             for (int i = 0; i < product.images!.length; i++) {
               uploadedImageMap[product.images![i]] = imageUrls[i];
             }
@@ -73,46 +69,108 @@ class ProductRepository extends GetxController{
           product.images!.assignAll(imageUrls);
         }
 
-
         // upload product to Fire store
         await _db.collection(UKeys.productsCollection).doc(product.id).set(product.toJson());
       }
-
-
-    }on FirebaseException catch(e){
+    } on FirebaseException catch (e) {
       throw UFirebaseException(e.code).message;
-    } on FormatException catch(_){
+    } on FormatException catch (_) {
       throw UFormatException();
-    } on PlatformException catch(e){
+    } on PlatformException catch (e) {
       throw UPlatformException(e.code).message;
-    } catch(e){
+    } catch (e) {
       rethrow;
     }
   }
 
-
   /// [Fetch] - Function to fetch list of products from Firebase
   Future<List<ProductModel>> fetchFeaturedProducts() async {
-    try{
-
+    try {
       final query = await _db.collection(UKeys.productsCollection).where('isFeatured', isEqualTo: true).limit(4).get();
 
-      if(query.docs.isNotEmpty){
+      if (query.docs.isNotEmpty) {
         List<ProductModel> products = query.docs.map((document) => ProductModel.fromSnapshot(document)).toList();
         return products;
       }
 
       return [];
-
-    }on FirebaseException catch(e){
+    } on FirebaseException catch (e) {
       throw UFirebaseException(e.code).message;
-    } on FormatException catch(_){
+    } on FormatException catch (_) {
       throw UFormatException();
-    } on PlatformException catch(e){
+    } on PlatformException catch (e) {
       throw UPlatformException(e.code).message;
-    } catch(e){
+    } catch (e) {
       throw 'Something went wrong. Please try again';
     }
   }
 
+  /// [Fetch] - Function to fetch all list of products from Firebase
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async {
+    try {
+      final query = await _db.collection(UKeys.productsCollection).where('isFeatured', isEqualTo: true).get();
+
+      if (query.docs.isNotEmpty) {
+        List<ProductModel> products = query.docs.map((document) => ProductModel.fromSnapshot(document)).toList();
+        return products;
+      }
+
+      return [];
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  /// [Fetch] - Function to fetch all list of products from Firebase
+  Future<List<ProductModel>> fetchProductsByQuery(Query query) async {
+    try {
+      final querySnapshot = await query.get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        List<ProductModel> products =
+            querySnapshot.docs.map((document) => ProductModel.fromQuerySnapshot(document)).toList();
+        return products;
+      }
+
+      return [];
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  /// [Fetch] - Function to fetch all list of brand specific products
+  Future<List<ProductModel>> getProductsForBrand({required String brandId, int limit = -1}) async {
+    try {
+      final query = limit == -1
+          ? await _db.collection(UKeys.productsCollection).where('brand.id', isEqualTo: brandId).get()
+          : await _db.collection(UKeys.productsCollection).where('brand.id', isEqualTo: brandId).limit(limit).get();
+
+      if (query.docs.isNotEmpty) {
+        List<ProductModel> products = query.docs.map((document) => ProductModel.fromSnapshot(document)).toList();
+        return products;
+      }
+
+      return [];
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
 }
