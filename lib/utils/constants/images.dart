@@ -215,7 +215,7 @@ class UImages{
   static const String jLogo = 'assets/brands/j..png';
   static const String nDURELogo = 'assets/brands/ndure.png';
   static const String nikeLogo = 'assets/brands/nike.png';
-  static const String northStarLogo = 'assets/brands/north_star.png';
+  static const String northStarLogo = 'assets/brands/north_star.jpg';
   static const String poloLogo = 'assets/brands/polo.png';
 
   // Payment Methods

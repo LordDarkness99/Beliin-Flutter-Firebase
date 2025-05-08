@@ -1,6 +1,7 @@
 import 'package:e_commerce/routes/routes.dart';
 
 import 'features/shop/models/banners_model.dart';
+import 'features/shop/models/brand_category_model.dart';
 import 'features/shop/models/brand_model.dart';
 import 'features/shop/models/category_model.dart';
 import 'features/shop/models/product_attribute_model.dart';
@@ -59,83 +60,104 @@ class UDummyData {
     CategoryModel(id: '23', name: 'Soccer', image: UImages.soccerIcon, parentId: '6', isFeatured: false),
   ];
 
+  static final List<BrandCategoryModel> brandCategory = [
+    BrandCategoryModel(categoryId: '1',brandId: '1'), // Clothes - Nike, Adidas, Breakout
+
+    BrandCategoryModel(categoryId: '2',brandId: '3'), // Shoes - Nike, NDURE, Bata, Adidas,
+
+    BrandCategoryModel(categoryId: '3',brandId: '2'), // Cosmetics - Dari mooch, j.
+
+    BrandCategoryModel(categoryId: '4',brandId: '8'), // Electronics - Apple, Bloody, HP
+
+    BrandCategoryModel(categoryId: '5',brandId: '8'), // Furniture - Herman Miller
+
+    BrandCategoryModel(categoryId: '6',brandId: '1'), // Shoes - nike
+    BrandCategoryModel(categoryId: '6',brandId: '5'), // Shoes - Puma
+    BrandCategoryModel(categoryId: '6',brandId: '2'), // Shoes - Adidas
+    BrandCategoryModel(categoryId: '6',brandId: '4'), // Shoes - Jordan
+
+    BrandCategoryModel(categoryId: '6',brandId: '7'), // Cosmetics - Kenwood
+    BrandCategoryModel(categoryId: '6',brandId: '6'), // Cosmetics - Zara
+
+  ];
+
   /// List of all Brands
   static final List<BrandModel> brands = [
     BrandModel(
         id: '1',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333460/Brands%20Images/zxupnxn1h3bm0zyp0ii4.png',
+        image: UImages.nikeLogo,
         name: 'Nike',
         productsCount: 6,
         isFeatured: true),
     BrandModel(
         id: '2',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333462/Brands%20Images/seaahp0sxfwmarxtt7sa.jpg',
+        image: UImages.adidasLogo,
         name: 'Adidas',
         productsCount: 7,
         isFeatured: true),
     BrandModel(
         id: '3',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333463/Brands%20Images/cbdixox3rvgdildwnpvm.jpg',
+        image: UImages.appleLogo,
         name: 'Apple',
         productsCount: 6,
         isFeatured: true),
     BrandModel(
         id: '4',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333465/Brands%20Images/omoc1m5bxobswiqd2e2o.png',
+        image: UImages.bataLogo,
         name: 'Bata',
         productsCount: 1,
         isFeatured: true),
     BrandModel(
         id: '5',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333466/Brands%20Images/md3nvpzwzvnsaknfvfqw.png',
+        image: UImages.bloodyLogo,
         name: 'Bloody',
         productsCount: 4,
         isFeatured: false),
     BrandModel(
         id: '6',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333468/Brands%20Images/sqgzmfsrvwno1wiocl1r.jpg',
+        image: UImages.breakoutLogo,
         name: 'Breakout',
         productsCount: 3,
         isFeatured: true),
     BrandModel(
         id: '7',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333469/Brands%20Images/mvp7effjz8s9gfqvsybf.png',
+        image: UImages.dariMoochLogo,
         name: 'Dari Mooch',
         productsCount: 3,
         isFeatured: true),
     BrandModel(
         id: '8',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333470/Brands%20Images/vklicwu9eydrllgzq8z3.jpg',
+        image: UImages.interWoodLogo,
         name: 'Interwood',
         productsCount: 5,
         isFeatured: false),
     BrandModel(
         id: '9',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333471/Brands%20Images/rcxbtctmu6bn3o3gkeko.jpg',
+        image: UImages.hpLogo,
         name: 'HP',
         productsCount: 7,
         isFeatured: false),
     BrandModel(
         id: '10',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333472/Brands%20Images/w28doqyhyyfyjujvujye.png',
+        image: UImages.jLogo,
         name: 'J.',
         productsCount: 2,
         isFeatured: true),
     BrandModel(
         id: '11',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745333473/Brands%20Images/mzuk9mh0vkr6h7askdrd.png',
+        image: UImages.nDURELogo,
         name: 'NDURE',
         productsCount: 2,
         isFeatured: true),
     BrandModel(
         id: '12',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745419252/north_star_ckt7y8.jpg',
+        image: UImages.northStarLogo,
         name: 'NorthStar',
         productsCount: 2,
         isFeatured: true),
     BrandModel(
         id: '13',
-        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1745419252/polo_jvhp6b.png',
+        image: UImages.poloLogo,
         name: 'Polo',
         productsCount: 2,
         isFeatured: true),
@@ -1631,32 +1653,7 @@ class UDummyData {
     ),
   ];
 
-// static final List<BrandCategoryModel> brandCategory = [
-//   BrandCategoryModel(categoryId: '1',brandId: '1'), // Sport - Nike
-//   BrandCategoryModel(categoryId: '1',brandId: '2'), // Sports - Adidas
-//
-//   BrandCategoryModel(categoryId: '2',brandId: '3'), // Electronics - Apple
-//   BrandCategoryModel(categoryId: '2',brandId: '10'), // Electronics - Acer
-//
-//   BrandCategoryModel(categoryId: '3',brandId: '2'), // Clothes - Adidas
-//   BrandCategoryModel(categoryId: '3',brandId: '5'), // Clothes - Puma
-//   BrandCategoryModel(categoryId: '3',brandId: '6'), // Clothes - Zara
-//
-//   BrandCategoryModel(categoryId: '4',brandId: '8'), // Animals - Herman Miller
-//   BrandCategoryModel(categoryId: '4',brandId: '9'), // Animals - Ikea
-//
-//   BrandCategoryModel(categoryId: '5',brandId: '8'), // Furniture - Herman Miller
-//   BrandCategoryModel(categoryId: '5',brandId: '9'), // Furniture - Ikea
-//
-//   BrandCategoryModel(categoryId: '6',brandId: '1'), // Shoes - nike
-//   BrandCategoryModel(categoryId: '6',brandId: '5'), // Shoes - Puma
-//   BrandCategoryModel(categoryId: '6',brandId: '2'), // Shoes - Adidas
-//   BrandCategoryModel(categoryId: '6',brandId: '4'), // Shoes - Jordan
-//
-//   BrandCategoryModel(categoryId: '6',brandId: '7'), // Cosmetics - Kenwood
-//   BrandCategoryModel(categoryId: '6',brandId: '6'), // Cosmetics - Zara
-//
-// ];
+
 //
 // static final List<ProductCategoryModel> productCategory = [
 //
