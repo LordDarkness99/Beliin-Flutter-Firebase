@@ -73,7 +73,7 @@ class ProductRepository extends GetxController {
         // upload product to Fire store
         await _db.collection(UKeys.productsCollection).doc(product.id).set(product.toJson());
 
-        debugPrint('Product ${product.id} uplaoded');
+        debugPrint('Product ${product.id} uploaded');
       }
     } on FirebaseException catch (e) {
       throw UFirebaseException(e.code).message;
