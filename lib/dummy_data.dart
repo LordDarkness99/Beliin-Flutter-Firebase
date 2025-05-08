@@ -61,23 +61,27 @@ class UDummyData {
   ];
 
   static final List<BrandCategoryModel> brandCategory = [
-    BrandCategoryModel(categoryId: '1',brandId: '1'), // Clothes - Nike, Adidas, Breakout
+    BrandCategoryModel(categoryId: '1',brandId: '1'), // Clothes - Nike
+    BrandCategoryModel(categoryId: '1',brandId: '2'), // Clothes - Adidas
+    BrandCategoryModel(categoryId: '1',brandId: '6'), // Clothes - Breakout
+    BrandCategoryModel(categoryId: '1',brandId: '13'), // Clothes - Polo
 
-    BrandCategoryModel(categoryId: '2',brandId: '3'), // Shoes - Nike, NDURE, Bata, Adidas,
+    BrandCategoryModel(categoryId: '2',brandId: '1'), // Shoes - Nike
+    BrandCategoryModel(categoryId: '2',brandId: '11'), // Shoes - NDURE
+    BrandCategoryModel(categoryId: '2',brandId: '4'), // Shoes - Bata
+    BrandCategoryModel(categoryId: '2',brandId: '2'), // Shoes - Adidas
 
-    BrandCategoryModel(categoryId: '3',brandId: '2'), // Cosmetics - Dari mooch, j.
+    BrandCategoryModel(categoryId: '3',brandId: '7'), // Cosmetics - Dari mooch
+    BrandCategoryModel(categoryId: '3',brandId: '10'), // Cosmetics - j.
+    BrandCategoryModel(categoryId: '3',brandId: '12'), // Cosmetics - North Star
 
-    BrandCategoryModel(categoryId: '4',brandId: '8'), // Electronics - Apple, Bloody, HP
+    BrandCategoryModel(categoryId: '4',brandId: '3'), // Electronics - Apple
+    BrandCategoryModel(categoryId: '4',brandId: '5'), // Electronics - Bloody
+    BrandCategoryModel(categoryId: '4',brandId: '9'), // Electronics - HP
 
-    BrandCategoryModel(categoryId: '5',brandId: '8'), // Furniture - Herman Miller
+    BrandCategoryModel(categoryId: '5',brandId: '8'), // Furniture - InterWood
 
-    BrandCategoryModel(categoryId: '6',brandId: '1'), // Shoes - nike
-    BrandCategoryModel(categoryId: '6',brandId: '5'), // Shoes - Puma
-    BrandCategoryModel(categoryId: '6',brandId: '2'), // Shoes - Adidas
-    BrandCategoryModel(categoryId: '6',brandId: '4'), // Shoes - Jordan
-
-    BrandCategoryModel(categoryId: '6',brandId: '7'), // Cosmetics - Kenwood
-    BrandCategoryModel(categoryId: '6',brandId: '6'), // Cosmetics - Zara
+    BrandCategoryModel(categoryId: '6',brandId: '1'), // Sports - Nike
 
   ];
 
@@ -85,79 +89,79 @@ class UDummyData {
   static final List<BrandModel> brands = [
     BrandModel(
         id: '1',
-        image: UImages.nikeLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712693/Brands%20Images/tl9wjbj77zeo9qul3eq2.png',
         name: 'Nike',
         productsCount: 6,
         isFeatured: true),
     BrandModel(
         id: '2',
-        image: UImages.adidasLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712696/Brands%20Images/fdxer5l7qrisfyff2c9x.jpg',
         name: 'Adidas',
         productsCount: 7,
         isFeatured: true),
     BrandModel(
         id: '3',
-        image: UImages.appleLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712697/Brands%20Images/rgoe3o3qptrjun5fmoqe.jpg',
         name: 'Apple',
         productsCount: 6,
         isFeatured: true),
     BrandModel(
         id: '4',
-        image: UImages.bataLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712698/Brands%20Images/mcwd8faen7iogfrpt0ts.png',
         name: 'Bata',
         productsCount: 1,
         isFeatured: true),
     BrandModel(
         id: '5',
-        image: UImages.bloodyLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712699/Brands%20Images/peojxxvbvsv4grldfliu.png',
         name: 'Bloody',
         productsCount: 4,
         isFeatured: false),
     BrandModel(
         id: '6',
-        image: UImages.breakoutLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712701/Brands%20Images/cc0yugmbnl6l3r9fxzej.jpg',
         name: 'Breakout',
         productsCount: 3,
         isFeatured: true),
     BrandModel(
         id: '7',
-        image: UImages.dariMoochLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712702/Brands%20Images/uija31c12nklaouz40rg.png',
         name: 'Dari Mooch',
         productsCount: 3,
         isFeatured: true),
     BrandModel(
         id: '8',
-        image: UImages.interWoodLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712703/Brands%20Images/e1ymwagv5db0cvsrdqfo.jpg',
         name: 'Interwood',
         productsCount: 5,
         isFeatured: false),
     BrandModel(
         id: '9',
-        image: UImages.hpLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712705/Brands%20Images/hih7hp1324alvlptfsi5.jpg',
         name: 'HP',
         productsCount: 7,
         isFeatured: false),
     BrandModel(
         id: '10',
-        image: UImages.jLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712706/Brands%20Images/hzi6y2n8km7hsqfl0m4k.png',
         name: 'J.',
         productsCount: 2,
         isFeatured: true),
     BrandModel(
         id: '11',
-        image: UImages.nDURELogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712707/Brands%20Images/ehasbyoowj8srvurhqvq.png',
         name: 'NDURE',
         productsCount: 2,
         isFeatured: true),
     BrandModel(
         id: '12',
-        image: UImages.northStarLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712709/Brands%20Images/ox9ir27nmkpj7fniwshs.jpg',
         name: 'NorthStar',
         productsCount: 2,
         isFeatured: true),
     BrandModel(
         id: '13',
-        image: UImages.poloLogo,
+        image: 'https://res.cloudinary.com/dx4o5amce/image/upload/v1746712710/Brands%20Images/xd3q9uwpkp9tlkc8u7ga.png',
         name: 'Polo',
         productsCount: 2,
         isFeatured: true),

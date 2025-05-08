@@ -6,6 +6,7 @@ import 'package:e_commerce/features/shop/models/product_model.dart';
 import 'package:e_commerce/features/shop/models/product_variation_model.dart';
 import 'package:e_commerce/utils/constants/keys.dart';
 import 'package:e_commerce/utils/helpers/helper_functions.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -71,6 +72,8 @@ class ProductRepository extends GetxController {
 
         // upload product to Fire store
         await _db.collection(UKeys.productsCollection).doc(product.id).set(product.toJson());
+
+        debugPrint('Product ${product.id} uplaoded');
       }
     } on FirebaseException catch (e) {
       throw UFirebaseException(e.code).message;
