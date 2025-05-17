@@ -17,6 +17,7 @@ import '../../../style/shadow.dart';
 import '../../texts/brand_title_with_verify_icon.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
+import '../favourite/favourite_icon.dart';
 
 class UProductCardVertical extends StatelessWidget {
   const UProductCardVertical({
@@ -67,7 +68,7 @@ class UProductCardVertical extends StatelessWidget {
                   ),
 
                   /// Favourite Button
-                  Positioned(right: 0, top: 0, child: UCircularIcon(icon: Iconsax.heart5, color: Colors.red))
+                  Positioned(right: 0, top: 0, child: UFavouriteIcon(productId: product.id))
                 ],
               ),
             ),

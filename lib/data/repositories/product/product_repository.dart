@@ -201,4 +201,26 @@ class ProductRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
+
+  /// [Fetch] - Function to fetch list of favourite products from Firebase
+  Future<List<ProductModel>> getFavouriteProducts(List<String> productsIds) async {
+    try {
+      final query = await _db.collection(UKeys.productsCollection).where(FieldPath.documentId, whereIn: productsIds).get();
+
+      if (query.docs.isNotEmpty) {
+        List<ProductModel> products = query.docs.map((document) => ProductModel.fromSnapshot(document)).toList();
+        return products;
+      }
+
+      return [];
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
 }
