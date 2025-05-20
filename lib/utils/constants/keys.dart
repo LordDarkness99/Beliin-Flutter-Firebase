@@ -8,6 +8,7 @@ class UKeys{
   static const String brandsCollection = 'Brands';
   static const String brandCategoryCollection = 'BrandCategory';
   static const String productCategoryCollection = 'ProductCategory';
+  static const String addressCollection = 'Addresses';
 
   static const String rememberMeEmail = 'rememberEmail';
   static const String rememberMePassword = 'rememberPassword';
