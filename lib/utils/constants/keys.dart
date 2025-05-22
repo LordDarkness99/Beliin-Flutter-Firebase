@@ -25,4 +25,6 @@ class UKeys{
   static const String brandsFolder = 'Brands Images';
   static const String productsFolder = 'Products Images';
 
+  static const String cartItemsKey = 'cartItems';
+
 }

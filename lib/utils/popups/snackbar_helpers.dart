@@ -18,7 +18,7 @@ class USnackBarHelpers {
             margin: const EdgeInsets.symmetric(horizontal: 30.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: UHelperFunctions.isDarkMode(Get.context!) ? UColors.darkerGrey.withValues(alpha: 0.9) : UColors.grey.withOpacity(0.9)
+                color: UHelperFunctions.isDarkMode(Get.context!) ? UColors.darkerGrey.withValues(alpha: 0.9) : UColors.grey.withValues(alpha: 0.9)
             ),
             child: Center(child: Text(message,style: Theme.of(Get.context!).textTheme.labelLarge,),),
           ),

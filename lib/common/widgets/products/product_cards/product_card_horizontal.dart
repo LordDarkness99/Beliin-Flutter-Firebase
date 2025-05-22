@@ -1,3 +1,4 @@
+import 'package:e_commerce/common/widgets/button/add_to_card_button.dart';
 import 'package:e_commerce/common/widgets/texts/brand_title_with_verify_icon.dart';
 import 'package:e_commerce/common/widgets/texts/product_price_text.dart';
 import 'package:e_commerce/common/widgets/texts/product_title_text.dart';
@@ -105,16 +106,7 @@ class UProductCardHorizontal extends StatelessWidget {
                           Flexible(child: UProductPriceText(price: controller.getProductPrice(product))),
 
                           /// Add Button
-                          Container(
-                            width: USizes.iconLg * 1.2,
-                            height: USizes.iconLg * 1.2,
-                            decoration: BoxDecoration(
-                                color: UColors.primary,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(USizes.cardRadiusMd),
-                                    bottomRight: Radius.circular(USizes.productImageRadius))),
-                            child: Icon(Iconsax.add, color: UColors.white),
-                          )
+                          ProductAddToCartButton(product: product)
                         ],
                       )
                     ],
