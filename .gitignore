@@ -54,5 +54,7 @@ lib/features/shop/controllers
 lib/features/shop/screens
 lib/data/repositories/user/user_repository.dart
 lib/data/repositories/address/address_repository.dart
+lib/data/repositories/order/order_repository.dart
 lib/data/repositories/authentication_repository.dart
+
 ios/Runner/GoogleService-Info.plist
