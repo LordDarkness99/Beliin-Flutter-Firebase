@@ -58,3 +58,5 @@ lib/data/repositories/order/order_repository.dart
 lib/data/repositories/authentication_repository.dart
 
 ios/Runner/GoogleService-Info.plist
+lib/data/services/branch_services.dart
+lib/data/services/stripe_services.dart

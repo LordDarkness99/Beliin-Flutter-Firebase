@@ -18,7 +18,7 @@ class UHelperFunctions{
       return Colors.red;
     } else if (value == 'Blue') {
       return Colors.blue;
-    } else if(value == 'Dark BLue'){
+    } else if(value == 'Dark Blue'){
       return Colors.blueGrey;
     }
     else if (value == 'Pink') {

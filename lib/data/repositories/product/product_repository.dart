@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/data/services/cloudinary_services.dart';
 import 'package:e_commerce/features/shop/models/product_model.dart';
-import 'package:e_commerce/features/shop/models/product_variation_model.dart';
 import 'package:e_commerce/utils/constants/keys.dart';
 import 'package:e_commerce/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -87,6 +86,50 @@ class ProductRepository extends GetxController {
   }
 
   /// [Fetch] - Function to fetch list of products from Firebase
+  Future<List<ProductModel>> fetchAllProducts() async {
+    try {
+      final query = await _db.collection(UKeys.productsCollection).get();
+
+      if (query.docs.isNotEmpty) {
+        List<ProductModel> products = query.docs.map((document) => ProductModel.fromSnapshot(document)).toList();
+        return products;
+      }
+
+      return [];
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  /// [Fetch] - Function to fetch single products from Firebase
+  Future<ProductModel> fetchSingleProduct(String productId) async {
+    try {
+      final query = await _db.collection(UKeys.productsCollection).doc(productId).get();
+
+      if (query.id.isNotEmpty) {
+        ProductModel product = ProductModel.fromSnapshot(query);
+        return product;
+      }
+
+      return ProductModel.empty();
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  /// [Fetch] - Function to fetch list of products from Firebase
   Future<List<ProductModel>> fetchFeaturedProducts() async {
     try {
       final query = await _db.collection(UKeys.productsCollection).where('isFeatured', isEqualTo: true).limit(4).get();
@@ -104,6 +147,7 @@ class ProductRepository extends GetxController {
     } on PlatformException catch (e) {
       throw UPlatformException(e.code).message;
     } catch (e) {
+      debugPrint('Error while getting featured products:$e');
       throw 'Something went wrong. Please try again';
     }
   }
@@ -223,4 +267,5 @@ class ProductRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
+
 }

@@ -34,4 +34,15 @@ class UPricingCalculator {
     return 20.00; // $20
   }
 
+  /// Calculate Discount percentage
+  static double calculatePercentageDiscount(double totalPrice, double discount){
+    double discountPrice = (totalPrice * discount) / 100;
+
+    return totalPrice - discountPrice;
+  }
+
+  /// Calculate Discount based on fixed amount
+  static double calculateFixedDiscount(double totalPrice, double discount){
+    return totalPrice - discount;
+  }
 }

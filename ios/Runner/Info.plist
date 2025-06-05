@@ -3,6 +3,18 @@
 <plist version="1.0">
 
 	<dict>
+
+    <!-- Internet Permission -->
+	<key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+
+    <!-- Image Pick From Photos -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs access to your photo gallery to let you choose images.</string>
+
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
@@ -49,6 +61,22 @@
 		<key>UIStatusBarHidden</key>
 		<false/>
 
+        <key>CFBundleURLTypes</key>
+        <array>
+          <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+              <string>com.googleusercontent.apps.1022000316839-ib6v5e47g67m939kjclrsj0qm4nikcpb</string>
+            </array>
+          </dict>
+        </array>
 
+
+        <key>NSCameraUsageDescription</key>
+        <string>Scan your card to add it automatically</string>
+        <key>NSCameraUsageDescription</key>
+        <string>To scan cards</string>
 	</dict>
 </plist>

@@ -38,8 +38,6 @@ class BannerRepository extends GetxController{
         }
 
         await _db.collection(UKeys.bannerCollection).doc().set(banner.toJson());
-
-        print('Banner Uploaded: ${banner.targetScreen}');
       }
 
       

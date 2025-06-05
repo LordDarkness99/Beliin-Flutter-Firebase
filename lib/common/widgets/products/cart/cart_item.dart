@@ -1,9 +1,7 @@
 import 'package:e_commerce/features/shop/models/cart_item_model.dart';
-import 'package:e_commerce/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/images.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../images/rounded_image.dart';

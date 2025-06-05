@@ -40,7 +40,6 @@ class BrandRepository extends GetxController{
         // store data to Firebase Fire store
         await _db.collection(UKeys.brandsCollection).doc(brand.id).set(brand.toJson());
 
-        print('Brand ${brand.name} uploaded successfully');
       }
 
 

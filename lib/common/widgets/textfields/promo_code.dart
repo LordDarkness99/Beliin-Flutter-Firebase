@@ -1,5 +1,6 @@
-import 'package:e_commerce/utils/helpers/helper_functions.dart';
+import 'package:e_commerce/features/shop/controllers/promo_code/promo_code_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -12,7 +13,7 @@ class UPromoCodeField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = UHelperFunctions.isDarkMode(context);
+    final controller = PromoCodeController.instance;
     return URoundedContainer(
       showBorder: true,
       backgroundColor: Colors.transparent,
@@ -21,26 +22,32 @@ class UPromoCodeField extends StatelessWidget {
         children: [
           Flexible(
               child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Have a promo code? Enter here',
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                ),
-              )),
-
-          SizedBox(
-              width: 80.0, child: ElevatedButton(
-            onPressed: (){},
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.grey.withValues(alpha: 0.2),
-                foregroundColor:  dark ? UColors.white.withValues(alpha: 0.5) : UColors.dark.withValues(alpha: 0.5),
-                side: BorderSide(color: Colors.grey.withValues(alpha: 0.1))
+            onChanged: controller.onPromoChanged,
+            decoration: InputDecoration(
+              hintText: 'Have a promo code? Enter here',
+              border: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
             ),
-            child: Text('Apply'),
-          ))
+          )),
+          SizedBox(
+              width: 80.0,
+              child: Obx(
+                () => ElevatedButton(
+                  onPressed: controller.appliedPromoCode.value.id.isNotEmpty
+                      ? null
+                      : controller.promoCode.isEmpty
+                          ? null
+                          : controller.applyPromoCode,
+                  style: ElevatedButton.styleFrom(side: BorderSide(color: Colors.grey.withValues(alpha: 0.1))),
+                  child: controller.isLoading.value
+                      ? SizedBox(
+                          width: USizes.lg, height: USizes.lg, child: CircularProgressIndicator(color: UColors.white))
+                      : Text(controller.appliedPromoCode.value.id.isEmpty ? 'Apply' : 'Applied'),
+                ),
+              ))
         ],
       ),
     );

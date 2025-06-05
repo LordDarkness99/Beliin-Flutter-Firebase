@@ -12,7 +12,6 @@ class UCartCounterIcon extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     bool dark = UHelperFunctions.isDarkMode(context);
@@ -20,12 +19,10 @@ class UCartCounterIcon extends StatelessWidget {
 
     return Stack(
       children: [
-
         /// Bag Icon | Cart Icon
         IconButton(
             onPressed: () => Get.to(() => CartScreen()),
-            icon: const Icon(Iconsax.shopping_bag),
-            color: UColors.light),
+            icon: const Icon(Iconsax.shopping_bag), color: UColors.light),
 
         /// Counter Text
         Positioned(
@@ -36,7 +33,7 @@ class UCartCounterIcon extends StatelessWidget {
             decoration: BoxDecoration(color: dark ? UColors.dark : UColors.light, shape: BoxShape.circle),
             child: Center(
               child: Obx(
-    () => Text(
+                () => Text(
                   controller.noOfCartItems.value.toString(),
                   style: Theme.of(context)
                       .textTheme

@@ -1,4 +1,7 @@
+import 'package:e_commerce/features/shop/models/promo_code_model.dart';
 import 'package:e_commerce/routes/routes.dart';
+import 'package:e_commerce/utils/constants/enums.dart';
+import 'package:e_commerce/utils/constants/texts.dart';
 
 import 'features/shop/models/banners_model.dart';
 import 'features/shop/models/brand_category_model.dart';
@@ -347,7 +350,7 @@ class UDummyData {
       id: '9',
       title: 'Warm Striped Socks – Red and Cream Colo',
       stock: 30,
-      salePrice: 78.99,
+      salePrice: 7.99,
       price: 8.99,
       thumbnail: UImages.productImage9,
       description:
@@ -634,7 +637,7 @@ class UDummyData {
           "This berry pink handbag combines elegance with everyday functionality. Featuring dual top handles, a structured silhouette, and a statement gold-accented tassel, it’s perfect for elevating your outfit — whether at work, brunch, or a night out.",
       sku: 'BAGS-J.',
       categoryId: '14',
-      productType: 'ProductType.variable',
+      productType: 'ProductType.single',
       productAttributes: [
         ProductAttributeModel(name: 'Color', values: ['White', 'Red'])
       ],
@@ -1838,5 +1841,126 @@ class UDummyData {
     // Soccer
     ProductCategoryModel(categoryId: '23', productId: '2'),
   ];
-  
+
+  static final List<PromoCodeModel> promoCodes = [
+    PromoCodeModel(
+        id: '1',
+        code: 'WELCOME10',
+        name: 'Welcome Offer',
+        discount: 10,
+        discountType: DiscountType.percentage,
+        startDate: DateTime.now(),
+        endDate: DateTime.now().add(Duration(days: 30)),
+        isActive: true,
+        minOrderPrice: 1000,
+        noOfPromoCodes: 100),
+    PromoCodeModel(
+      id: '2',
+      code: 'FLAT50',
+      name: 'Flat ${UTexts.currency}50 Off',
+      discount: 50,
+      discountType: DiscountType.fixed,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 10)),
+      isActive: true,
+      minOrderPrice: 500,
+      noOfPromoCodes: 50,
+    ),
+    PromoCodeModel(
+      id: '3',
+      code: 'SUMMER20',
+      name: 'Summer Special 20% Off',
+      discount: 20,
+      discountType: DiscountType.percentage,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 20)),
+      isActive: true,
+      minOrderPrice: 1200,
+      noOfPromoCodes: 200,
+    ),
+    PromoCodeModel(
+      id: '4',
+      code: 'FIRSTORDER',
+      name: 'First Order Bonus',
+      discount: 30,
+      discountType: DiscountType.fixed,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 15)),
+      isActive: true,
+      minOrderPrice: 800,
+      noOfPromoCodes: 75,
+    ),
+    PromoCodeModel(
+      id: '5',
+      code: 'FLASH15',
+      name: 'Flash Sale 15% Off',
+      discount: 15,
+      discountType: DiscountType.percentage,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 5)),
+      isActive: true,
+      minOrderPrice: 1500,
+      noOfPromoCodes: 30,
+    ),
+    PromoCodeModel(
+      id: '6',
+      code: 'BIGSAVE100',
+      name: 'Big Save ${UTexts.currency}100 Off',
+      discount: 100,
+      discountType: DiscountType.fixed,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 45)),
+      isActive: true,
+      minOrderPrice: 3000,
+      noOfPromoCodes: 120,
+    ),
+    PromoCodeModel(
+      id: '7',
+      code: 'FREESHIP',
+      name: 'Free Shipping',
+      discount: 5,
+      discountType: DiscountType.percentage,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 90)),
+      isActive: true,
+      minOrderPrice: 0,
+      noOfPromoCodes: 999,
+    ),
+    PromoCodeModel(
+      id: '8',
+      code: 'NEWYEAR25',
+      name: 'New Year 25% Off',
+      discount: 25,
+      discountType: DiscountType.percentage,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 60)),
+      isActive: true,
+      minOrderPrice: 2000,
+      noOfPromoCodes: 80,
+    ),
+    PromoCodeModel(
+      id: '9',
+      code: 'DIWALI500',
+      name: 'Diwali Mega ${UTexts.currency}500 Off',
+      discount: 500,
+      discountType: DiscountType.fixed,
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 25)),
+      isActive: true,
+      minOrderPrice: 3500,
+      noOfPromoCodes: 40,
+    ),
+    PromoCodeModel(
+      id: '10',
+      code: 'SAVE70',
+      name: 'Save ${UTexts.currency}70 Instantly',
+      discount: 70,
+      discountType: DiscountType.fixed,
+      startDate: DateTime.now().subtract(Duration(days: 2)),
+      endDate: DateTime.now().subtract(Duration(days: 1)),
+      isActive: true,
+      minOrderPrice: 1000,
+      noOfPromoCodes: 70,
+    ),
+  ];
 }

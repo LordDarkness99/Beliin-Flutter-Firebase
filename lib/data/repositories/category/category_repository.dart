@@ -48,7 +48,6 @@ class CategoryRepository extends GetxController{
     try{
       for(final productCategory in productCategories) {
         await _db.collection(UKeys.productCategoryCollection).doc().set(productCategory.toJson());
-        print('Upload ${productCategory.productId}');
       }
 
 

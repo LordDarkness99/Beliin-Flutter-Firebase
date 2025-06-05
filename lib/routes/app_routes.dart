@@ -3,10 +3,8 @@
 import 'package:e_commerce/features/personalization/screens/address/address.dart';
 import 'package:e_commerce/features/personalization/screens/edit_profile/edit_profile.dart';
 import 'package:e_commerce/features/personalization/screens/profile/profile.dart';
-import 'package:e_commerce/features/shop/screens/home/home.dart';
 import 'package:e_commerce/features/shop/screens/store/store.dart';
 import 'package:e_commerce/features/shop/screens/wishlist/wishlist.dart';
-import 'package:e_commerce/navigation_menu.dart';
 import 'package:e_commerce/routes/routes.dart';
 import 'package:get/get.dart';
 
@@ -18,11 +16,12 @@ import '../features/authentication/screens/signup/verify_email.dart';
 import '../features/shop/screens/cart/cart.dart';
 import '../features/shop/screens/checkout/checkout.dart';
 import '../features/shop/screens/order/order.dart';
+import '../loading.dart';
 
 class UAppRoutes{
 
   static final screens = [
-    GetPage(name: URoutes.home, page: () => const NavigationMenu(),),
+    GetPage(name: URoutes.home, page: () => const LoadingScreen()),
     GetPage(name: URoutes.store, page: () => const StoreScreen(),),
     GetPage(name: URoutes.wishlist, page: () => const WishlistScreen(),),
     GetPage(name: URoutes.profile, page: () => const ProfileScreen(),),

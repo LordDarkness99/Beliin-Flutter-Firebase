@@ -5,16 +5,13 @@ import 'package:e_commerce/common/widgets/texts/product_title_text.dart';
 import 'package:e_commerce/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../features/shop/controllers/product/product_controller.dart';
 import '../../../../features/shop/screens/product_details/product_details.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/images.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../custom_shapes/rounded_container.dart';
-import '../../icons/circular_icon.dart';
 import '../../images/rounded_image.dart';
 import '../favourite/favourite_icon.dart';
 
