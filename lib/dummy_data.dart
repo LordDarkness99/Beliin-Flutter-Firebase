@@ -12,7 +12,7 @@ import 'features/shop/models/product_category_model.dart';
 import 'features/shop/models/product_model.dart';
 import 'features/shop/models/product_variation_model.dart';
 import 'utils/constants/images.dart';
-
+///Jawa
 class UDummyData {
   /// List of all Banners
 
